@@ -1,6 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.4
-
+import MyTextView 1.0 //my code
 BasePage {
     id: root
     lightContent: false
@@ -122,20 +122,30 @@ BasePage {
         }
     }
 
+    MyTextView{
+        anchors.top: parent.top
+        width: parent.width
+        height: parent.height/2
+        z: 10
+    }
+
     ListView {
+        id: alistview //my code
         width: parent.width
         y: titleBar.height
-        height: parent.height - y
+        //height: parent.height - y
+        height: parent.height/2 //my code
+        anchors.bottom: parent.bottom //my code
         model: sessions
         delegate: sessionCell
         clip: true
     }
 
-    TextField {
-        x: 10
-        width: parent.width - 20
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 50
-    }
+//    TextField {
+//        x: 10
+//        width: parent.width - 20
+//        anchors.bottom: parent.bottom
+//        anchors.bottomMargin: 50
+//    }
 }
 
